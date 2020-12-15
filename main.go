@@ -27,7 +27,7 @@ func main() {
 	//		log.Fatal("Error loading templates:" + err.Error())
 	//	}
 	router.HandleFunc("/", indexHandler())
-	router.HandleFunc("/transfer", transferHandler())
+	router.HandleFunc("/modul", modulHandler())
 
 	fmt.Println("Start ...")
 	log.Fatal(http.ListenAndServe(":8081", router))
@@ -40,7 +40,7 @@ func indexHandler() http.HandlerFunc {
 	}
 }
 
-func transferHandler() http.HandlerFunc {
+func modulHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		tpl.ExecuteTemplate(w, "index3.html", nil)
 	}
